@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.linyuan.blog.dao.TagMapper" >
+    <resultMap id="BaseResultMap" type="com.linyuan.blog.domain.Tag">
+        <id column="tag_id" jdbcType="INTEGER" property="tagId" />
+        <result column="tag_name" jdbcType="VARCHAR" property="tagName" />
+
+    </resultMap>
+    <insert id="insertTag" parameterType ="com.linyuan.blog.domain.Tag">
+         insert into
+         tb_tag(tag_name)
+         values (#{tagName})
+    </insert>
+    <update id="updateTag" parameterType="com.linyuan.blog.domain.Tag">
+        update tb_tag
+        set
+        tag_name = #{tagName}
+        where
+        tag_id = #{tagId}
+    </update>
+    <delete id="deleteTag">
+        DELETE
+        FROM tb_tag
+         WHERE tag_id = #{tagId};
+    </delete>
+
+    <select id="findTagById" resultType="com.linyuan.blog.domain.Tag">
+        select tag_id,tag_name
+        from tb_tag
+        where tag_id = #{tagId,jdbcType=INTEGER}
+    </select>
+    <select id="findTagByName" resultType="com.linyuan.blog.domain.Tag">
+        select tag_id,tag_name
+        from tb_tag
+        where tag_name = #{tagName,jdbcType=VARCHAR}
+    </select>
+    <select id="findAllTag" resultType="com.linyuan.blog.domain.Tag">
+         select tag_id,tag_name from tb_tag
+    </select>
+    <select id="findTagList" resultType="com.linyuan.blog.domain.Tag">
+        select tag_id,tag_name from tb_tag where tag_id in
+        <foreach collection="array" open="(" close=")" separator="or" item="value">
+            #{value}
+        </foreach>
+
+    </select>
+    <select id="findTagByBlogId" resultType="com.linyuan.blog.domain.Tag">
+        SELECT
+	        tb_tag.tag_id,
+	        tb_tag.tag_name
+        FROM
+	        tb_tag
+	    LEFT JOIN tb_blog_tag ON tb_tag.tag_id = tb_blog_tag.tag_id
+        WHERE
+	        tb_blog_tag.blog_id = #{blogId}
+    </select>
+
+
+</mapper>

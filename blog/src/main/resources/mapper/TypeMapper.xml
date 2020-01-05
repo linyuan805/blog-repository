@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.linyuan.blog.dao.TypeMapper" >
+    <resultMap id="BaseResultMap" type="com.linyuan.blog.domain.Type">
+        <id column="type_id" jdbcType="INTEGER" property="typeId" />
+        <result column="type_name" jdbcType="VARCHAR" property="typeName" />
+
+    </resultMap>
+    <update id="updateTypeNameById">
+        update tb_type
+        set
+        type_name = #{typeName}
+        where
+        type_id = #{typeId}
+    </update>
+    <delete id="deleteTypeById">
+        DELETE
+        FROM tb_type
+         WHERE type_id = #{typeId};
+    </delete>
+
+
+    <select id="findTypeById" resultType="com.linyuan.blog.domain.Type" >
+        select type_id,type_name
+        from tb_type
+        where type_id = #{typeId}
+    </select>
+
+    <select id="findAllType" resultType="com.linyuan.blog.domain.Type">
+        select
+            type_id,type_name
+        from
+            tb_type
+    </select>
+
+    <select id="findTypeByName" resultType="com.linyuan.blog.domain.Type">
+        select type_id,type_name
+        from tb_type
+        where type_name = #{typeName,jdbcType=VARCHAR}
+    </select>
+
+    <insert id="insertType" parameterType="com.linyuan.blog.domain.Type">
+        insert into tb_type(type_name) values (#{typeName})
+    </insert>
+
+</mapper>
