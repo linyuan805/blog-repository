@@ -1,0 +1,94 @@
+2019-10-31 15:50:06.471  INFO 3828 --- [restartedMain] com.linyuan.blog.BlogApplication         : Starting BlogApplication on DESKTOP-N5SQ278 with PID 3828 (E:\IdeaProjects\blog\target\classes started by DoubleTrees_L in E:\IdeaProjects\blog)
+2019-10-31 15:50:06.474 DEBUG 3828 --- [restartedMain] com.linyuan.blog.BlogApplication         : Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2019-10-31 15:50:06.474  INFO 3828 --- [restartedMain] com.linyuan.blog.BlogApplication         : The following profiles are active: dev
+2019-10-31 15:50:06.556  INFO 3828 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-10-31 15:50:06.560  INFO 3828 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-10-31 15:50:07.938  WARN 3828 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.linyuan.blog]' package. Please check your configuration.
+2019-10-31 15:50:09.384  INFO 3828 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-10-31 15:50:09.398  INFO 3828 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-31 15:50:09.399  INFO 3828 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-10-31 15:50:09.607  INFO 3828 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-31 15:50:09.608  INFO 3828 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3047 ms
+2019-10-31 15:50:10.223  INFO 3828 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-31 15:50:10.732  INFO 3828 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-31 15:50:10.801  INFO 3828 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-10-31 15:50:10.804  INFO 3828 --- [restartedMain] com.linyuan.blog.BlogApplication         : Started BlogApplication in 5.079 seconds (JVM running for 7.846)
+2019-10-31 15:52:21.358  INFO 3828 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-31 15:52:21.358  INFO 3828 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-31 15:52:21.366  INFO 3828 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-10-31 15:52:39.450  INFO 3828 --- [Thread-12] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-31 15:52:39.794  INFO 3828 --- [restartedMain] com.linyuan.blog.BlogApplication         : Starting BlogApplication on DESKTOP-N5SQ278 with PID 3828 (E:\IdeaProjects\blog\target\classes started by DoubleTrees_L in E:\IdeaProjects\blog)
+2019-10-31 15:52:39.795 DEBUG 3828 --- [restartedMain] com.linyuan.blog.BlogApplication         : Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2019-10-31 15:52:39.795  INFO 3828 --- [restartedMain] com.linyuan.blog.BlogApplication         : The following profiles are active: pro
+2019-10-31 15:52:40.106  WARN 3828 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.linyuan.blog]' package. Please check your configuration.
+2019-10-31 15:52:40.167  WARN 3828 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
+2019-10-31 15:52:40.252  INFO 3828 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-10-31 15:52:40.254  INFO 3828 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-31 15:52:40.254  INFO 3828 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-10-31 15:52:40.289  INFO 3828 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-31 15:52:40.289  INFO 3828 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 489 ms
+2019-10-31 15:52:40.353  INFO 3828 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-31 15:52:40.442  INFO 3828 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-31 15:52:40.461  INFO 3828 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-10-31 15:52:40.462  INFO 3828 --- [restartedMain] com.linyuan.blog.BlogApplication         : Started BlogApplication in 0.704 seconds (JVM running for 157.504)
+2019-10-31 15:52:40.464  INFO 3828 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-10-31 15:52:59.160  INFO 3828 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-31 15:52:59.161  INFO 3828 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-31 15:52:59.165  INFO 3828 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2019-10-31 16:03:50.306  INFO 3828 --- [Thread-19] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-31 16:03:50.696  INFO 3828 --- [restartedMain] com.linyuan.blog.BlogApplication         : Starting BlogApplication on DESKTOP-N5SQ278 with PID 3828 (E:\IdeaProjects\blog\target\classes started by DoubleTrees_L in E:\IdeaProjects\blog)
+2019-10-31 16:03:50.696 DEBUG 3828 --- [restartedMain] com.linyuan.blog.BlogApplication         : Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2019-10-31 16:03:50.696  INFO 3828 --- [restartedMain] com.linyuan.blog.BlogApplication         : The following profiles are active: dev
+2019-10-31 16:03:51.008  WARN 3828 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.linyuan.blog]' package. Please check your configuration.
+2019-10-31 16:03:51.050  WARN 3828 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
+2019-10-31 16:03:51.135  INFO 3828 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-10-31 16:03:51.136  INFO 3828 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-31 16:03:51.136  INFO 3828 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-10-31 16:03:51.167  INFO 3828 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-31 16:03:51.167  INFO 3828 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 461 ms
+2019-10-31 16:03:51.243  INFO 3828 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-31 16:03:51.346  INFO 3828 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-31 16:03:51.364  INFO 3828 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-10-31 16:03:51.364  INFO 3828 --- [restartedMain] com.linyuan.blog.BlogApplication         : Started BlogApplication in 0.754 seconds (JVM running for 828.406)
+2019-10-31 16:03:51.366  INFO 3828 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-10-31 16:04:24.980  INFO 3828 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-31 16:04:24.981  INFO 3828 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-31 16:04:24.988  INFO 3828 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-10-31 16:08:20.460  INFO 5352 --- [restartedMain] com.linyuan.blog.BlogApplication         : Starting BlogApplication on DESKTOP-N5SQ278 with PID 5352 (E:\IdeaProjects\blog\target\classes started by DoubleTrees_L in E:\IdeaProjects\blog)
+2019-10-31 16:08:20.463 DEBUG 5352 --- [restartedMain] com.linyuan.blog.BlogApplication         : Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2019-10-31 16:08:20.463  INFO 5352 --- [restartedMain] com.linyuan.blog.BlogApplication         : The following profiles are active: dev
+2019-10-31 16:08:20.522  INFO 5352 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-10-31 16:08:20.522  INFO 5352 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-10-31 16:08:21.226  WARN 5352 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.linyuan.blog]' package. Please check your configuration.
+2019-10-31 16:08:21.689  INFO 5352 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-10-31 16:08:21.698  INFO 5352 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-31 16:08:21.698  INFO 5352 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-10-31 16:08:21.799  INFO 5352 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-31 16:08:21.799  INFO 5352 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1276 ms
+2019-10-31 16:08:21.992  INFO 5352 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-31 16:08:22.282  INFO 5352 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-31 16:08:22.336  INFO 5352 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-10-31 16:08:22.339  INFO 5352 --- [restartedMain] com.linyuan.blog.BlogApplication         : Started BlogApplication in 2.406 seconds (JVM running for 3.577)
+2019-10-31 16:10:28.630  INFO 5352 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-31 16:10:28.631  INFO 5352 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-31 16:10:28.638  INFO 5352 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-10-31 16:17:09.148  INFO 5352 --- [Thread-11] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-31 16:17:09.488  INFO 5352 --- [restartedMain] com.linyuan.blog.BlogApplication         : Starting BlogApplication on DESKTOP-N5SQ278 with PID 5352 (E:\IdeaProjects\blog\target\classes started by DoubleTrees_L in E:\IdeaProjects\blog)
+2019-10-31 16:17:09.488 DEBUG 5352 --- [restartedMain] com.linyuan.blog.BlogApplication         : Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2019-10-31 16:17:09.489  INFO 5352 --- [restartedMain] com.linyuan.blog.BlogApplication         : The following profiles are active: dev
+2019-10-31 16:17:09.746  WARN 5352 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.linyuan.blog]' package. Please check your configuration.
+2019-10-31 16:17:09.799  WARN 5352 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
+2019-10-31 16:17:09.878  INFO 5352 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-10-31 16:17:09.878  INFO 5352 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-31 16:17:09.879  INFO 5352 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-10-31 16:17:09.919  INFO 5352 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-31 16:17:09.920  INFO 5352 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 427 ms
+2019-10-31 16:17:10.025  INFO 5352 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-31 16:17:10.136  INFO 5352 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-31 16:17:10.161  INFO 5352 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-10-31 16:17:10.162  INFO 5352 --- [restartedMain] com.linyuan.blog.BlogApplication         : Started BlogApplication in 0.71 seconds (JVM running for 531.4)
+2019-10-31 16:17:10.163  INFO 5352 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-10-31 16:17:25.895  INFO 5352 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-31 16:17:25.896  INFO 5352 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-31 16:17:25.899  INFO 5352 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2019-10-31 16:30:20.589  INFO 5352 --- [Thread-18] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

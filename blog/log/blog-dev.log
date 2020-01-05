@@ -1,0 +1,799 @@
+2020-01-05 00:23:32.911  INFO 12632 --- [http-nio-8080-exec-6] com.linyuan.blog.aspect.LogAspect        : Request:RequestLog{url='http://localhost:8080/blog/8', ip='0:0:0:0:0:0:0:1', classMethod='com.linyuan.blog.controller.IndexController.blog', args=[8, {}]}
+2020-01-05 00:23:32.922 DEBUG 12632 --- [http-nio-8080-exec-6] c.l.b.d.BlogMapper.updateViewsByBlogId   : ==>  Preparing: UPDATE tb_blog SET views = views + 1 WHERE id = ? 
+2020-01-05 00:23:32.923 DEBUG 12632 --- [http-nio-8080-exec-6] c.l.b.d.BlogMapper.updateViewsByBlogId   : ==> Parameters: 8(Long)
+2020-01-05 00:23:32.929 DEBUG 12632 --- [http-nio-8080-exec-6] c.l.b.d.BlogMapper.updateViewsByBlogId   : <==    Updates: 1
+2020-01-05 00:23:32.930 DEBUG 12632 --- [http-nio-8080-exec-6] c.l.blog.dao.BlogMapper.findBlogById     : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, content, appreciation, description, published, recommend, comment_enable, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.id = ? 
+2020-01-05 00:23:32.931 DEBUG 12632 --- [http-nio-8080-exec-6] c.l.blog.dao.BlogMapper.findBlogById     : ==> Parameters: 8(Long)
+2020-01-05 00:23:32.945 DEBUG 12632 --- [http-nio-8080-exec-6] c.l.blog.dao.BlogMapper.findBlogById     : <==      Total: 2
+2020-01-05 00:23:32.947  INFO 12632 --- [http-nio-8080-exec-6] com.linyuan.blog.aspect.LogAspect        : Result:blog
+2020-01-05 00:23:34.535  INFO 12632 --- [http-nio-8080-exec-9] com.linyuan.blog.aspect.LogAspect        : Request:RequestLog{url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.linyuan.blog.controller.IndexController.newblogs', args=[{}]}
+2020-01-05 00:23:34.537 DEBUG 12632 --- [http-nio-8080-exec-9] c.l.b.d.BlogMapper.findBlogRecommendTop  : ==>  Preparing: SELECT tb_blog.id, tb_blog.title, tb_blog.update_time, tb_blog.flag FROM tb_blog WHERE recommend is true ORDER BY update_time DESC LIMIT ? 
+2020-01-05 00:23:34.538 DEBUG 12632 --- [http-nio-8080-exec-9] c.l.b.d.BlogMapper.findBlogRecommendTop  : ==> Parameters: 3(Integer)
+2020-01-05 00:23:34.541 DEBUG 12632 --- [http-nio-8080-exec-9] c.l.b.d.BlogMapper.findBlogRecommendTop  : <==      Total: 3
+2020-01-05 00:23:34.542  INFO 12632 --- [http-nio-8080-exec-9] com.linyuan.blog.aspect.LogAspect        : Result:_fragments :: newblogList
+2020-01-05 00:23:34.745  INFO 12632 --- [http-nio-8080-exec-10] com.linyuan.blog.aspect.LogAspect        : Request:RequestLog{url='http://localhost:8080/comments/8', ip='0:0:0:0:0:0:0:1', classMethod='com.linyuan.blog.controller.CommentController.comments', args=[8, {}]}
+2020-01-05 00:23:34.756 DEBUG 12632 --- [http-nio-8080-exec-10] d.C.findCommentByBlogIdAndParentIdIsNull : ==>  Preparing: select * from tb_comment where blog_id = ? and parent_comment_id is null 
+2020-01-05 00:23:34.756 DEBUG 12632 --- [http-nio-8080-exec-10] d.C.findCommentByBlogIdAndParentIdIsNull : ==> Parameters: 8(Long)
+2020-01-05 00:23:34.761 DEBUG 12632 --- [http-nio-8080-exec-10] d.C.findCommentByBlogIdAndParentIdIsNull : <==      Total: 0
+2020-01-05 00:23:34.766  INFO 12632 --- [http-nio-8080-exec-10] com.linyuan.blog.aspect.LogAspect        : Result:blog :: commentList
+2020-01-05 00:26:19.650  INFO 12632 --- [Thread-30] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@66278e03: startup date [Sat Jan 04 23:42:09 CST 2020]; root of context hierarchy
+2020-01-05 00:26:19.655  INFO 12632 --- [Thread-30] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-01-05 00:26:19.656  INFO 12632 --- [Thread-30] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2020-01-05 00:26:19.659  INFO 12632 --- [Thread-30] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-01-05 00:26:19.669  INFO 12632 --- [Thread-30] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-01-05 00:26:20.890  INFO 12632 --- [restartedMain] com.linyuan.blog.BlogApplication         : Starting BlogApplication on DESKTOP-FP88SFT with PID 12632 (started by LinYuan in C:\Users\林远\IdeaProjects\blog)
+2020-01-05 00:26:20.890 DEBUG 12632 --- [restartedMain] com.linyuan.blog.BlogApplication         : Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2020-01-05 00:26:20.891  INFO 12632 --- [restartedMain] com.linyuan.blog.BlogApplication         : The following profiles are active: dev
+2020-01-05 00:26:20.897  INFO 12632 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@29472b4a: startup date [Sun Jan 05 00:26:20 CST 2020]; root of context hierarchy
+2020-01-05 00:26:22.935  INFO 12632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-01-05 00:26:22.937  INFO 12632 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-01-05 00:26:22.937  INFO 12632 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2020-01-05 00:26:24.025  INFO 12632 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-01-05 00:26:24.027  INFO 12632 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3130 ms
+2020-01-05 00:26:24.065  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2020-01-05 00:26:24.066  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-01-05 00:26:24.066  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-01-05 00:26:24.067  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-01-05 00:26:24.067  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-01-05 00:26:24.720  INFO 12632 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 00:26:25.133  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@29472b4a: startup date [Sun Jan 05 00:26:20 CST 2020]; root of context hierarchy
+2020-01-05 00:26:25.173  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.AboutShowController.about()
+2020-01-05 00:26:25.176  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.delete(java.lang.Long,com.linyuan.blog.domain.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 00:26:25.177  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/search],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.search(com.linyuan.blog.domain.BlogTypeVO,org.springframework.ui.Model)
+2020-01-05 00:26:25.177  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.input(org.springframework.ui.Model)
+2020-01-05 00:26:25.178  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.post(com.linyuan.blog.domain.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpSession)
+2020-01-05 00:26:25.178  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.blogs(com.linyuan.blog.domain.BlogTypeVO,org.springframework.ui.Model)
+2020-01-05 00:26:25.178  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:26:25.180  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 00:26:25.181  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.loginPage()
+2020-01-05 00:26:25.181  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.logout(javax.servlet.http.HttpSession)
+2020-01-05 00:26:25.185  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 00:26:25.186  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.input(org.springframework.ui.Model)
+2020-01-05 00:26:25.186  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.post(com.linyuan.blog.domain.Tag,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes,org.springframework.ui.Model)
+2020-01-05 00:26:25.186  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:26:25.187  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.findAllTag(org.springframework.ui.Model)
+2020-01-05 00:26:25.187  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.editPost(com.linyuan.blog.domain.Tag,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,org.springframework.ui.Model)
+2020-01-05 00:26:25.196  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.delete(long)
+2020-01-05 00:26:25.197  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.types(org.springframework.ui.Model)
+2020-01-05 00:26:25.197  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.editInput(long,org.springframework.ui.Model)
+2020-01-05 00:26:25.198  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.postType(com.linyuan.blog.domain.Type,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 00:26:25.198  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.editPost(com.linyuan.blog.domain.Type,long)
+2020-01-05 00:26:25.199  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.typesInput(org.springframework.ui.Model)
+2020-01-05 00:26:25.201  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/archives],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.ArchiveShowController.archives(org.springframework.ui.Model)
+2020-01-05 00:26:25.203  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments/{blogId}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.CommentController.comments(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:26:25.203  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.CommentController.post(com.linyuan.blog.domain.Comment,javax.servlet.http.HttpSession)
+2020-01-05 00:26:25.205  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.index(org.springframework.ui.Model)
+2020-01-05 00:26:25.205  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.search(org.springframework.ui.Model,java.lang.String)
+2020-01-05 00:26:25.206  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.blog(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:26:25.206  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/footer/newblog],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.newblogs(org.springframework.ui.Model)
+2020-01-05 00:26:25.207  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tags/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.TagShowController.tags(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:26:25.209  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/types/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.TypeShowController.types(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:26:25.216  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-01-05 00:26:25.217  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-01-05 00:26:25.274  INFO 12632 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 00:26:25.274  INFO 12632 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 00:26:25.298  INFO 12632 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-01-05 00:26:25.507  INFO 12632 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-01-05 00:26:26.212  INFO 12632 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-01-05 00:26:26.296  INFO 12632 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-01-05 00:26:26.298  INFO 12632 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-01-05 00:26:26.324  INFO 12632 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2020-01-05 00:26:26.348  INFO 12632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-01-05 00:26:26.350  INFO 12632 --- [restartedMain] com.linyuan.blog.BlogApplication         : Started BlogApplication in 5.56 seconds (JVM running for 2664.429)
+2020-01-05 00:26:26.357  INFO 12632 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-01-05 00:26:28.213  INFO 12632 --- [Thread-38] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@29472b4a: startup date [Sun Jan 05 00:26:20 CST 2020]; root of context hierarchy
+2020-01-05 00:26:28.216  INFO 12632 --- [Thread-38] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-01-05 00:26:28.216  INFO 12632 --- [Thread-38] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2020-01-05 00:26:29.715  INFO 12632 --- [restartedMain] com.linyuan.blog.BlogApplication         : Starting BlogApplication on DESKTOP-FP88SFT with PID 12632 (started by LinYuan in C:\Users\林远\IdeaProjects\blog)
+2020-01-05 00:26:29.716 DEBUG 12632 --- [restartedMain] com.linyuan.blog.BlogApplication         : Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2020-01-05 00:26:29.716  INFO 12632 --- [restartedMain] com.linyuan.blog.BlogApplication         : The following profiles are active: dev
+2020-01-05 00:26:29.723  INFO 12632 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1ae3eaec: startup date [Sun Jan 05 00:26:29 CST 2020]; root of context hierarchy
+2020-01-05 00:26:31.354  INFO 12632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-01-05 00:26:31.355  INFO 12632 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-01-05 00:26:31.356  INFO 12632 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2020-01-05 00:26:31.418  INFO 12632 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-01-05 00:26:31.420  INFO 12632 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1697 ms
+2020-01-05 00:26:31.474  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2020-01-05 00:26:31.475  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-01-05 00:26:31.475  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-01-05 00:26:31.475  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-01-05 00:26:31.475  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-01-05 00:26:32.073  INFO 12632 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 00:26:32.604  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1ae3eaec: startup date [Sun Jan 05 00:26:29 CST 2020]; root of context hierarchy
+2020-01-05 00:26:32.744  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.AboutShowController.about()
+2020-01-05 00:26:32.751  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.delete(java.lang.Long,com.linyuan.blog.domain.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 00:26:32.752  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/search],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.search(com.linyuan.blog.domain.BlogTypeVO,org.springframework.ui.Model)
+2020-01-05 00:26:32.754  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.input(org.springframework.ui.Model)
+2020-01-05 00:26:32.754  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.post(com.linyuan.blog.domain.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpSession)
+2020-01-05 00:26:32.755  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.blogs(com.linyuan.blog.domain.BlogTypeVO,org.springframework.ui.Model)
+2020-01-05 00:26:32.756  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:26:32.764  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 00:26:32.775  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.loginPage()
+2020-01-05 00:26:32.788  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.logout(javax.servlet.http.HttpSession)
+2020-01-05 00:26:32.794  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 00:26:32.801  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.input(org.springframework.ui.Model)
+2020-01-05 00:26:32.803  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.post(com.linyuan.blog.domain.Tag,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes,org.springframework.ui.Model)
+2020-01-05 00:26:32.804  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:26:32.804  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.findAllTag(org.springframework.ui.Model)
+2020-01-05 00:26:32.805  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.editPost(com.linyuan.blog.domain.Tag,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,org.springframework.ui.Model)
+2020-01-05 00:26:32.820  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.delete(long)
+2020-01-05 00:26:32.821  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.types(org.springframework.ui.Model)
+2020-01-05 00:26:32.821  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.editInput(long,org.springframework.ui.Model)
+2020-01-05 00:26:32.823  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.postType(com.linyuan.blog.domain.Type,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 00:26:32.823  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.editPost(com.linyuan.blog.domain.Type,long)
+2020-01-05 00:26:32.823  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.typesInput(org.springframework.ui.Model)
+2020-01-05 00:26:32.834  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/archives],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.ArchiveShowController.archives(org.springframework.ui.Model)
+2020-01-05 00:26:32.835  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments/{blogId}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.CommentController.comments(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:26:32.836  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.CommentController.post(com.linyuan.blog.domain.Comment,javax.servlet.http.HttpSession)
+2020-01-05 00:26:32.837  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.index(org.springframework.ui.Model)
+2020-01-05 00:26:32.838  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.search(org.springframework.ui.Model,java.lang.String)
+2020-01-05 00:26:32.838  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.blog(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:26:32.838  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/footer/newblog],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.newblogs(org.springframework.ui.Model)
+2020-01-05 00:26:32.839  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tags/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.TagShowController.tags(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:26:32.840  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/types/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.TypeShowController.types(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:26:32.853  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-01-05 00:26:32.854  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-01-05 00:26:32.943  INFO 12632 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 00:26:32.943  INFO 12632 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 00:26:32.988  INFO 12632 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-01-05 00:26:33.794  INFO 12632 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-01-05 00:26:35.185  INFO 12632 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-01-05 00:26:35.249  INFO 12632 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-01-05 00:26:35.250  INFO 12632 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-01-05 00:26:35.265  INFO 12632 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2020-01-05 00:26:35.295  INFO 12632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-01-05 00:26:35.298  INFO 12632 --- [restartedMain] com.linyuan.blog.BlogApplication         : Started BlogApplication in 5.688 seconds (JVM running for 2673.377)
+2020-01-05 00:26:35.305  INFO 12632 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-01-05 00:26:55.903  INFO 12632 --- [http-nio-8080-exec-10] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-01-05 00:26:55.903  INFO 12632 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-01-05 00:26:55.925  INFO 12632 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 22 ms
+2020-01-05 00:26:59.094  INFO 12632 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-01-05 00:26:59.108  INFO 12632 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-01-05 00:26:59.108 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.b.d.U.findByUsernameAndPassword      : ==>  Preparing: select user_id, nickname, avatar, update_time, email from tb_user where username = ? AND password = ? 
+2020-01-05 00:26:59.108 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.b.d.U.findByUsernameAndPassword      : ==> Parameters: linyuan(String), 0a0f(String)
+2020-01-05 00:26:59.112 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.b.d.U.findByUsernameAndPassword      : <==      Total: 1
+2020-01-05 00:26:59.114 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.UserMapper.updateLoginTime  : ==>  Preparing: UPDATE tb_user SET update_time = NOW( ) WHERE user_id = ? 
+2020-01-05 00:26:59.115 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.UserMapper.updateLoginTime  : ==> Parameters: 1(Long)
+2020-01-05 00:26:59.119 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.UserMapper.updateLoginTime  : <==    Updates: 1
+2020-01-05 00:27:02.568 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id 
+2020-01-05 00:27:02.570 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 
+2020-01-05 00:27:02.588 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 13
+2020-01-05 00:27:02.589 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 00:27:02.589 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 00:27:02.590 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 00:27:08.164  INFO 12632 --- [http-nio-8080-exec-8] com.linyuan.blog.aspect.LogAspect        : Request:RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.linyuan.blog.controller.IndexController.index', args=[{}]}
+2020-01-05 00:27:08.172 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id 
+2020-01-05 00:27:08.173 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 
+2020-01-05 00:27:08.189 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 13
+2020-01-05 00:27:08.191 DEBUG 12632 --- [http-nio-8080-exec-8] c.linyuan.blog.dao.TagMapper.findAllTag  : ==>  Preparing: select tag_id,tag_name from tb_tag 
+2020-01-05 00:27:08.191 DEBUG 12632 --- [http-nio-8080-exec-8] c.linyuan.blog.dao.TagMapper.findAllTag  : ==> Parameters: 
+2020-01-05 00:27:08.192 DEBUG 12632 --- [http-nio-8080-exec-8] c.linyuan.blog.dao.TagMapper.findAllTag  : <==      Total: 9
+2020-01-05 00:27:08.194 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:27:08.194 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 1(Long)
+2020-01-05 00:27:08.201 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 1
+2020-01-05 00:27:08.204 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:27:08.209 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 2(Long)
+2020-01-05 00:27:08.222 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 1
+2020-01-05 00:27:08.223 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:27:08.223 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 3(Long)
+2020-01-05 00:27:08.235 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 3
+2020-01-05 00:27:08.236 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:27:08.237 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 4(Long)
+2020-01-05 00:27:08.238 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 2
+2020-01-05 00:27:08.240 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:27:08.240 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 8(Long)
+2020-01-05 00:27:08.242 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 1
+2020-01-05 00:27:08.243 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:27:08.244 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 9(Long)
+2020-01-05 00:27:08.246 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 1
+2020-01-05 00:27:08.247 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:27:08.247 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 10(Long)
+2020-01-05 00:27:08.251 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 2
+2020-01-05 00:27:08.252 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:27:08.253 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 11(Long)
+2020-01-05 00:27:08.255 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 1
+2020-01-05 00:27:08.256 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:27:08.256 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 12(Long)
+2020-01-05 00:27:08.258 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 1
+2020-01-05 00:27:08.259 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 00:27:08.259 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 00:27:08.261 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 00:27:08.262 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.type_id = ? 
+2020-01-05 00:27:08.263 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 1(Long)
+2020-01-05 00:27:08.266 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 2
+2020-01-05 00:27:08.268 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.type_id = ? 
+2020-01-05 00:27:08.268 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 2(Long)
+2020-01-05 00:27:08.270 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 6
+2020-01-05 00:27:08.272 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.type_id = ? 
+2020-01-05 00:27:08.272 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 3(Long)
+2020-01-05 00:27:08.274 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 1
+2020-01-05 00:27:08.277 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.type_id = ? 
+2020-01-05 00:27:08.277 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 4(Long)
+2020-01-05 00:27:08.279 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 3
+2020-01-05 00:27:08.281 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.type_id = ? 
+2020-01-05 00:27:08.282 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 5(Long)
+2020-01-05 00:27:08.285 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 1
+2020-01-05 00:27:08.286 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.b.d.BlogMapper.findBlogRecommendTop  : ==>  Preparing: SELECT tb_blog.id, tb_blog.title, tb_blog.update_time, tb_blog.flag FROM tb_blog WHERE recommend is true ORDER BY update_time DESC LIMIT ? 
+2020-01-05 00:27:08.286 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.b.d.BlogMapper.findBlogRecommendTop  : ==> Parameters: 6(Integer)
+2020-01-05 00:27:08.289 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.b.d.BlogMapper.findBlogRecommendTop  : <==      Total: 6
+2020-01-05 00:27:08.290  INFO 12632 --- [http-nio-8080-exec-8] com.linyuan.blog.aspect.LogAspect        : Result:index
+2020-01-05 00:27:10.098  INFO 12632 --- [http-nio-8080-exec-5] com.linyuan.blog.aspect.LogAspect        : Request:RequestLog{url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.linyuan.blog.controller.IndexController.newblogs', args=[{}]}
+2020-01-05 00:27:10.104 DEBUG 12632 --- [http-nio-8080-exec-5] c.l.b.d.BlogMapper.findBlogRecommendTop  : ==>  Preparing: SELECT tb_blog.id, tb_blog.title, tb_blog.update_time, tb_blog.flag FROM tb_blog WHERE recommend is true ORDER BY update_time DESC LIMIT ? 
+2020-01-05 00:27:10.105 DEBUG 12632 --- [http-nio-8080-exec-5] c.l.b.d.BlogMapper.findBlogRecommendTop  : ==> Parameters: 3(Integer)
+2020-01-05 00:27:10.108 DEBUG 12632 --- [http-nio-8080-exec-5] c.l.b.d.BlogMapper.findBlogRecommendTop  : <==      Total: 3
+2020-01-05 00:27:10.108  INFO 12632 --- [http-nio-8080-exec-5] com.linyuan.blog.aspect.LogAspect        : Result:_fragments :: newblogList
+2020-01-05 00:27:17.470 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.BlogMapper.deleteBlogById   : ==>  Preparing: delete from tb_blog where id = ? 
+2020-01-05 00:27:17.471 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.BlogMapper.deleteBlogById   : ==> Parameters: 8(Long)
+2020-01-05 00:27:17.476 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.BlogMapper.deleteBlogById   : <==    Updates: 1
+2020-01-05 00:27:17.477 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.BlogMapper.deleteBlogTagId  : ==>  Preparing: delete from tb_blog_tag where blog_id = ? 
+2020-01-05 00:27:17.477 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.BlogMapper.deleteBlogTagId  : ==> Parameters: 8(Long)
+2020-01-05 00:27:17.480 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.BlogMapper.deleteBlogTagId  : <==    Updates: 2
+2020-01-05 00:27:17.510 DEBUG 12632 --- [http-nio-8080-exec-3] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id 
+2020-01-05 00:27:17.510 DEBUG 12632 --- [http-nio-8080-exec-3] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 
+2020-01-05 00:27:17.516 DEBUG 12632 --- [http-nio-8080-exec-3] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 11
+2020-01-05 00:27:17.516 DEBUG 12632 --- [http-nio-8080-exec-3] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 00:27:17.519 DEBUG 12632 --- [http-nio-8080-exec-3] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 00:27:17.520 DEBUG 12632 --- [http-nio-8080-exec-3] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 00:27:23.321 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 00:27:23.321 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 00:27:23.323 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 00:27:23.324 DEBUG 12632 --- [http-nio-8080-exec-7] c.linyuan.blog.dao.TagMapper.findAllTag  : ==>  Preparing: select tag_id,tag_name from tb_tag 
+2020-01-05 00:27:23.324 DEBUG 12632 --- [http-nio-8080-exec-7] c.linyuan.blog.dao.TagMapper.findAllTag  : ==> Parameters: 
+2020-01-05 00:27:23.325 DEBUG 12632 --- [http-nio-8080-exec-7] c.linyuan.blog.dao.TagMapper.findAllTag  : <==      Total: 9
+2020-01-05 00:36:03.068 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.TypeMapper.findTypeById     : ==>  Preparing: select type_id,type_name from tb_type where type_id = ? 
+2020-01-05 00:36:03.070 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.TypeMapper.findTypeById     : ==> Parameters: 4(Long)
+2020-01-05 00:36:03.071 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.TypeMapper.findTypeById     : <==      Total: 1
+2020-01-05 00:36:03.074 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.TagMapper.findTagList       : ==>  Preparing: select tag_id,tag_name from tb_tag where tag_id in ( ? or ? ) 
+2020-01-05 00:36:03.075 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.TagMapper.findTagList       : ==> Parameters: 11(Integer), 12(Integer)
+2020-01-05 00:36:03.076 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.TagMapper.findTagList       : <==      Total: 1
+2020-01-05 00:36:03.077 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.insertBlog       : ==>  Preparing: INSERT INTO tb_blog (title, content, first_picture, flag, views, appreciation, create_time, update_time, share_statement, comment_enable, published, recommend, type_id, description) VALUES (?, ?, ?, ?, ?, ?, now(), now(), ?, ?, ?, ?, ?, ?) 
+2020-01-05 00:36:03.079 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.insertBlog       : ==> Parameters: 人工智能的学习(String), ##一级标题
+#### 四级标题
+###### 六级标题(String), https://picsum.photos/800/450(String), (String), 0(Integer), false(Boolean), false(Boolean), false(Boolean), true(Boolean), false(Boolean), 4(Long), 这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...(String)
+2020-01-05 00:36:03.109  INFO 12632 --- [http-nio-8080-exec-8] o.s.b.f.xml.XmlBeanDefinitionReader      : Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2020-01-05 00:36:03.586 ERROR 12632 --- [http-nio-8080-exec-8] c.l.b.h.ControllerExceptionHandler       : Request URL:http://localhost:8080/admin/blogs,Exception:{}
+
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'create_time' in 'field list'
+### The error may exist in file [C:\Users\林远\IdeaProjects\blog\target\classes\mapper\BlogMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: INSERT INTO         tb_blog (title,                 content,                 first_picture,                 flag,                 views,                 appreciation,                 create_time,                 update_time,                 share_statement,                 comment_enable,                 published,                 recommend,                 type_id,                 description)         VALUES      (?,      ?,      ?,      ?,      ?,      ?,      now(),      now(),      ?,      ?,      ?,      ?,      ?,      ?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'create_time' in 'field list'
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'create_time' in 'field list'
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:234)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy84.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:58)
+	at com.sun.proxy.$Proxy130.insertBlog(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:197)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy131.insertBlog(Unknown Source)
+	at com.linyuan.blog.service.impl.BlogServiceImpl.insertBlog(BlogServiceImpl.java:53)
+	at com.linyuan.blog.controller.admin.BlogController.post(BlogController.java:96)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:877)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:783)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:877)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'create_time' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3976)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3912)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2486)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1197)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at sun.reflect.GeneratedMethodAccessor93.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy111.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 72 common frames omitted
+
+2020-01-05 00:36:03.589  WARN 12632 --- [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved exception caused by Handler execution: org.springframework.jdbc.BadSqlGrammarException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'create_time' in 'field list'
+### The error may exist in file [C:\Users\林远\IdeaProjects\blog\target\classes\mapper\BlogMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: INSERT INTO         tb_blog (title,                 content,                 first_picture,                 flag,                 views,                 appreciation,                 create_time,                 update_time,                 share_statement,                 comment_enable,                 published,                 recommend,                 type_id,                 description)         VALUES      (?,      ?,      ?,      ?,      ?,      ?,      now(),      now(),      ?,      ?,      ?,      ?,      ?,      ?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'create_time' in 'field list'
+; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'create_time' in 'field list'
+2020-01-05 00:37:41.396 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 00:37:41.396 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 00:37:41.397 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 00:37:41.398 DEBUG 12632 --- [http-nio-8080-exec-4] c.linyuan.blog.dao.TagMapper.findAllTag  : ==>  Preparing: select tag_id,tag_name from tb_tag 
+2020-01-05 00:37:41.398 DEBUG 12632 --- [http-nio-8080-exec-4] c.linyuan.blog.dao.TagMapper.findAllTag  : ==> Parameters: 
+2020-01-05 00:37:41.399 DEBUG 12632 --- [http-nio-8080-exec-4] c.linyuan.blog.dao.TagMapper.findAllTag  : <==      Total: 9
+2020-01-05 00:39:12.630 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.TypeMapper.findTypeById     : ==>  Preparing: select type_id,type_name from tb_type where type_id = ? 
+2020-01-05 00:39:12.631 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.TypeMapper.findTypeById     : ==> Parameters: 4(Long)
+2020-01-05 00:39:12.632 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.TypeMapper.findTypeById     : <==      Total: 1
+2020-01-05 00:39:12.633 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.TagMapper.findTagList       : ==>  Preparing: select tag_id,tag_name from tb_tag where tag_id in ( ? or ? ) 
+2020-01-05 00:39:12.633 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.TagMapper.findTagList       : ==> Parameters: 11(Integer), 12(Integer)
+2020-01-05 00:39:12.635 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.TagMapper.findTagList       : <==      Total: 1
+2020-01-05 00:39:12.635 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.BlogMapper.insertBlog       : ==>  Preparing: INSERT INTO tb_blog (title, content, first_picture, flag, views, appreciation, create_time, update_time, share_statement, comment_enable, published, recommend, type_id, description) VALUES (?, ?, ?, ?, ?, ?, now(), now(), ?, ?, ?, ?, ?, ?) 
+2020-01-05 00:39:12.636 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.BlogMapper.insertBlog       : ==> Parameters: 人工智能(String), ## 二级标题
+#### 四级标题
+###### 六级标题(String), https://picsum.photos/800/450(String), (String), 0(Integer), false(Boolean), false(Boolean), false(Boolean), true(Boolean), false(Boolean), 4(Long), 这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...(String)
+2020-01-05 00:39:12.643 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.BlogMapper.insertBlog       : <==    Updates: 1
+2020-01-05 00:39:12.645 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.BlogMapper.insertBlogTagId  : ==>  Preparing: insert into tb_blog_tag (blog_id,tag_id) values (?, ?) ; insert into tb_blog_tag (blog_id,tag_id) values (?, ?) 
+2020-01-05 00:39:12.648 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.BlogMapper.insertBlogTagId  : ==> Parameters: 9(Long), 11(Integer), 9(Long), 12(Integer)
+2020-01-05 00:39:12.651 DEBUG 12632 --- [http-nio-8080-exec-7] c.l.blog.dao.BlogMapper.insertBlogTagId  : <==    Updates: 1
+2020-01-05 00:39:12.663 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id 
+2020-01-05 00:39:12.663 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 
+2020-01-05 00:39:12.667 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 13
+2020-01-05 00:39:12.668 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 00:39:12.668 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 00:39:12.669 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 00:39:21.636  INFO 12632 --- [http-nio-8080-exec-8] com.linyuan.blog.aspect.LogAspect        : Request:RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.linyuan.blog.controller.IndexController.index', args=[{}]}
+2020-01-05 00:39:21.637 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id 
+2020-01-05 00:39:21.638 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 
+2020-01-05 00:39:21.643 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 13
+2020-01-05 00:39:21.643 DEBUG 12632 --- [http-nio-8080-exec-8] c.linyuan.blog.dao.TagMapper.findAllTag  : ==>  Preparing: select tag_id,tag_name from tb_tag 
+2020-01-05 00:39:21.644 DEBUG 12632 --- [http-nio-8080-exec-8] c.linyuan.blog.dao.TagMapper.findAllTag  : ==> Parameters: 
+2020-01-05 00:39:21.645 DEBUG 12632 --- [http-nio-8080-exec-8] c.linyuan.blog.dao.TagMapper.findAllTag  : <==      Total: 9
+2020-01-05 00:39:21.647 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:39:21.647 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 1(Long)
+2020-01-05 00:39:21.650 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 1
+2020-01-05 00:39:21.650 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:39:21.651 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 2(Long)
+2020-01-05 00:39:21.652 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 1
+2020-01-05 00:39:21.653 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:39:21.653 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 3(Long)
+2020-01-05 00:39:21.656 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 3
+2020-01-05 00:39:21.657 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:39:21.658 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 4(Long)
+2020-01-05 00:39:21.661 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 2
+2020-01-05 00:39:21.662 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:39:21.663 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 8(Long)
+2020-01-05 00:39:21.666 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 1
+2020-01-05 00:39:21.667 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:39:21.668 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 9(Long)
+2020-01-05 00:39:21.671 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 1
+2020-01-05 00:39:21.672 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:39:21.672 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 10(Long)
+2020-01-05 00:39:21.674 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 2
+2020-01-05 00:39:21.675 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:39:21.678 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 11(Long)
+2020-01-05 00:39:21.681 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 1
+2020-01-05 00:39:21.681 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_type.type_id = tb_blog.type_id AND tb_tag.tag_id = ? 
+2020-01-05 00:39:21.682 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : ==> Parameters: 12(Long)
+2020-01-05 00:39:21.684 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findBlogByTagId  : <==      Total: 1
+2020-01-05 00:39:21.685 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 00:39:21.685 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 00:39:21.686 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 00:39:21.687 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.type_id = ? 
+2020-01-05 00:39:21.687 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 1(Long)
+2020-01-05 00:39:21.689 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 2
+2020-01-05 00:39:21.690 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.type_id = ? 
+2020-01-05 00:39:21.691 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 2(Long)
+2020-01-05 00:39:21.694 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 6
+2020-01-05 00:39:21.696 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.type_id = ? 
+2020-01-05 00:39:21.696 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 3(Long)
+2020-01-05 00:39:21.698 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 1
+2020-01-05 00:39:21.699 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.type_id = ? 
+2020-01-05 00:39:21.700 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 4(Long)
+2020-01-05 00:39:21.702 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 3
+2020-01-05 00:39:21.703 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.type_id = ? 
+2020-01-05 00:39:21.704 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 5(Long)
+2020-01-05 00:39:21.706 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 1
+2020-01-05 00:39:21.707 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.b.d.BlogMapper.findBlogRecommendTop  : ==>  Preparing: SELECT tb_blog.id, tb_blog.title, tb_blog.update_time, tb_blog.flag FROM tb_blog WHERE recommend is true ORDER BY update_time DESC LIMIT ? 
+2020-01-05 00:39:21.708 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.b.d.BlogMapper.findBlogRecommendTop  : ==> Parameters: 6(Integer)
+2020-01-05 00:39:21.710 DEBUG 12632 --- [http-nio-8080-exec-8] c.l.b.d.BlogMapper.findBlogRecommendTop  : <==      Total: 6
+2020-01-05 00:39:21.710  INFO 12632 --- [http-nio-8080-exec-8] com.linyuan.blog.aspect.LogAspect        : Result:index
+2020-01-05 00:39:23.231  INFO 12632 --- [http-nio-8080-exec-6] com.linyuan.blog.aspect.LogAspect        : Request:RequestLog{url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.linyuan.blog.controller.IndexController.newblogs', args=[{}]}
+2020-01-05 00:39:23.232 DEBUG 12632 --- [http-nio-8080-exec-6] c.l.b.d.BlogMapper.findBlogRecommendTop  : ==>  Preparing: SELECT tb_blog.id, tb_blog.title, tb_blog.update_time, tb_blog.flag FROM tb_blog WHERE recommend is true ORDER BY update_time DESC LIMIT ? 
+2020-01-05 00:39:23.233 DEBUG 12632 --- [http-nio-8080-exec-6] c.l.b.d.BlogMapper.findBlogRecommendTop  : ==> Parameters: 3(Integer)
+2020-01-05 00:39:23.236 DEBUG 12632 --- [http-nio-8080-exec-6] c.l.b.d.BlogMapper.findBlogRecommendTop  : <==      Total: 3
+2020-01-05 00:39:23.236  INFO 12632 --- [http-nio-8080-exec-6] com.linyuan.blog.aspect.LogAspect        : Result:_fragments :: newblogList
+2020-01-05 00:39:35.127  INFO 12632 --- [http-nio-8080-exec-10] com.linyuan.blog.aspect.LogAspect        : Request:RequestLog{url='http://localhost:8080/blog/9', ip='0:0:0:0:0:0:0:1', classMethod='com.linyuan.blog.controller.IndexController.blog', args=[9, {}]}
+2020-01-05 00:39:35.136 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.b.d.BlogMapper.updateViewsByBlogId   : ==>  Preparing: UPDATE tb_blog SET views = views + 1 WHERE id = ? 
+2020-01-05 00:39:35.137 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.b.d.BlogMapper.updateViewsByBlogId   : ==> Parameters: 9(Long)
+2020-01-05 00:39:35.140 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.b.d.BlogMapper.updateViewsByBlogId   : <==    Updates: 1
+2020-01-05 00:39:35.141 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findBlogById     : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, content, appreciation, description, published, recommend, comment_enable, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.id = ? 
+2020-01-05 00:39:35.142 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findBlogById     : ==> Parameters: 9(Long)
+2020-01-05 00:39:35.145 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findBlogById     : <==      Total: 2
+2020-01-05 00:39:35.153  INFO 12632 --- [http-nio-8080-exec-10] com.linyuan.blog.aspect.LogAspect        : Result:blog
+2020-01-05 00:39:36.532  INFO 12632 --- [http-nio-8080-exec-9] com.linyuan.blog.aspect.LogAspect        : Request:RequestLog{url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.linyuan.blog.controller.IndexController.newblogs', args=[{}]}
+2020-01-05 00:39:36.534 DEBUG 12632 --- [http-nio-8080-exec-9] c.l.b.d.BlogMapper.findBlogRecommendTop  : ==>  Preparing: SELECT tb_blog.id, tb_blog.title, tb_blog.update_time, tb_blog.flag FROM tb_blog WHERE recommend is true ORDER BY update_time DESC LIMIT ? 
+2020-01-05 00:39:36.535 DEBUG 12632 --- [http-nio-8080-exec-9] c.l.b.d.BlogMapper.findBlogRecommendTop  : ==> Parameters: 3(Integer)
+2020-01-05 00:39:36.537 DEBUG 12632 --- [http-nio-8080-exec-9] c.l.b.d.BlogMapper.findBlogRecommendTop  : <==      Total: 3
+2020-01-05 00:39:36.537  INFO 12632 --- [http-nio-8080-exec-9] com.linyuan.blog.aspect.LogAspect        : Result:_fragments :: newblogList
+2020-01-05 00:52:28.285  INFO 12632 --- [Thread-44] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1ae3eaec: startup date [Sun Jan 05 00:26:29 CST 2020]; root of context hierarchy
+2020-01-05 00:52:28.289  INFO 12632 --- [Thread-44] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-01-05 00:52:28.289  INFO 12632 --- [Thread-44] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2020-01-05 00:52:28.291  INFO 12632 --- [Thread-44] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2020-01-05 00:52:28.302  INFO 12632 --- [Thread-44] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2020-01-05 00:52:30.304  INFO 12632 --- [restartedMain] com.linyuan.blog.BlogApplication         : Starting BlogApplication on DESKTOP-FP88SFT with PID 12632 (started by LinYuan in C:\Users\林远\IdeaProjects\blog)
+2020-01-05 00:52:30.304 DEBUG 12632 --- [restartedMain] com.linyuan.blog.BlogApplication         : Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2020-01-05 00:52:30.304  INFO 12632 --- [restartedMain] com.linyuan.blog.BlogApplication         : The following profiles are active: dev
+2020-01-05 00:52:30.312  INFO 12632 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7bff3841: startup date [Sun Jan 05 00:52:30 CST 2020]; root of context hierarchy
+2020-01-05 00:52:32.274  INFO 12632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-01-05 00:52:32.275  INFO 12632 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-01-05 00:52:32.275  INFO 12632 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2020-01-05 00:52:32.595  INFO 12632 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-01-05 00:52:32.597  INFO 12632 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2285 ms
+2020-01-05 00:52:32.634  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2020-01-05 00:52:32.635  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-01-05 00:52:32.635  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-01-05 00:52:32.635  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-01-05 00:52:32.635  INFO 12632 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-01-05 00:52:33.302  INFO 12632 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 00:52:33.663  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7bff3841: startup date [Sun Jan 05 00:52:30 CST 2020]; root of context hierarchy
+2020-01-05 00:52:33.698  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.AboutShowController.about()
+2020-01-05 00:52:33.701  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.delete(java.lang.Long,com.linyuan.blog.domain.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 00:52:33.702  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/search],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.search(com.linyuan.blog.domain.BlogTypeVO,org.springframework.ui.Model)
+2020-01-05 00:52:33.702  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.input(org.springframework.ui.Model)
+2020-01-05 00:52:33.703  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.post(com.linyuan.blog.domain.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpSession)
+2020-01-05 00:52:33.703  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.blogs(com.linyuan.blog.domain.BlogTypeVO,org.springframework.ui.Model)
+2020-01-05 00:52:33.703  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:52:33.705  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 00:52:33.706  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.loginPage()
+2020-01-05 00:52:33.706  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.logout(javax.servlet.http.HttpSession)
+2020-01-05 00:52:33.709  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 00:52:33.709  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.input(org.springframework.ui.Model)
+2020-01-05 00:52:33.709  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.post(com.linyuan.blog.domain.Tag,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes,org.springframework.ui.Model)
+2020-01-05 00:52:33.710  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:52:33.710  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.findAllTag(org.springframework.ui.Model)
+2020-01-05 00:52:33.711  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.editPost(com.linyuan.blog.domain.Tag,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,org.springframework.ui.Model)
+2020-01-05 00:52:33.714  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.delete(long)
+2020-01-05 00:52:33.714  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.types(org.springframework.ui.Model)
+2020-01-05 00:52:33.715  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.editInput(long,org.springframework.ui.Model)
+2020-01-05 00:52:33.715  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.postType(com.linyuan.blog.domain.Type,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 00:52:33.715  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.editPost(com.linyuan.blog.domain.Type,long)
+2020-01-05 00:52:33.716  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.typesInput(org.springframework.ui.Model)
+2020-01-05 00:52:33.716  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/archives],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.ArchiveShowController.archives(org.springframework.ui.Model)
+2020-01-05 00:52:33.717  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments/{blogId}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.CommentController.comments(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:52:33.718  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.CommentController.post(com.linyuan.blog.domain.Comment,javax.servlet.http.HttpSession)
+2020-01-05 00:52:33.719  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.index(org.springframework.ui.Model)
+2020-01-05 00:52:33.719  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.search(org.springframework.ui.Model,java.lang.String)
+2020-01-05 00:52:33.719  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.blog(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:52:33.720  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/footer/newblog],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.newblogs(org.springframework.ui.Model)
+2020-01-05 00:52:33.721  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tags/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.TagShowController.tags(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:52:33.722  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/types/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.TypeShowController.types(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 00:52:33.725  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-01-05 00:52:33.725  INFO 12632 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-01-05 00:52:33.789  INFO 12632 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 00:52:33.789  INFO 12632 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 00:52:33.813  INFO 12632 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-01-05 00:52:34.048  INFO 12632 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-01-05 00:52:34.986  INFO 12632 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-01-05 00:52:35.078  INFO 12632 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-01-05 00:52:35.079  INFO 12632 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-01-05 00:52:35.086  INFO 12632 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2020-01-05 00:52:35.111  INFO 12632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-01-05 00:52:35.113  INFO 12632 --- [restartedMain] com.linyuan.blog.BlogApplication         : Started BlogApplication in 4.918 seconds (JVM running for 4233.192)
+2020-01-05 00:52:35.117  INFO 12632 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-01-05 00:53:21.335  INFO 12632 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-01-05 00:53:21.339  INFO 12632 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-01-05 00:53:21.356  INFO 12632 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2020-01-05 00:53:24.624  INFO 12632 --- [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2020-01-05 00:53:24.635  INFO 12632 --- [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2020-01-05 00:53:24.635 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.b.d.U.findByUsernameAndPassword      : ==>  Preparing: select user_id, nickname, avatar, update_time, email from tb_user where username = ? AND password = ? 
+2020-01-05 00:53:24.636 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.b.d.U.findByUsernameAndPassword      : ==> Parameters: linyuan(String), 0a0f(String)
+2020-01-05 00:53:24.641 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.b.d.U.findByUsernameAndPassword      : <==      Total: 1
+2020-01-05 00:53:24.643 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.UserMapper.updateLoginTime  : ==>  Preparing: UPDATE tb_user SET update_time = NOW( ) WHERE user_id = ? 
+2020-01-05 00:53:24.643 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.UserMapper.updateLoginTime  : ==> Parameters: 1(Long)
+2020-01-05 00:53:24.646 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.UserMapper.updateLoginTime  : <==    Updates: 1
+2020-01-05 00:53:26.697 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id 
+2020-01-05 00:53:26.699 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 
+2020-01-05 00:53:26.713 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 13
+2020-01-05 00:53:26.714 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 00:53:26.714 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 00:53:26.715 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 00:53:30.818 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 00:53:30.819 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 00:53:30.822 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 00:53:30.823 DEBUG 12632 --- [http-nio-8080-exec-1] c.linyuan.blog.dao.TagMapper.findAllTag  : ==>  Preparing: select tag_id,tag_name from tb_tag 
+2020-01-05 00:53:30.824 DEBUG 12632 --- [http-nio-8080-exec-1] c.linyuan.blog.dao.TagMapper.findAllTag  : ==> Parameters: 
+2020-01-05 00:53:30.826 DEBUG 12632 --- [http-nio-8080-exec-1] c.linyuan.blog.dao.TagMapper.findAllTag  : <==      Total: 9
+2020-01-05 00:53:30.827 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogMapper.findBlogById     : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, content, appreciation, description, published, recommend, comment_enable, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.id = ? 
+2020-01-05 00:53:30.828 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogMapper.findBlogById     : ==> Parameters: 9(Long)
+2020-01-05 00:53:30.831 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogMapper.findBlogById     : <==      Total: 2
+2020-01-05 00:53:49.870 DEBUG 12632 --- [http-nio-8080-exec-3] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id 
+2020-01-05 00:53:49.870 DEBUG 12632 --- [http-nio-8080-exec-3] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 
+2020-01-05 00:53:49.882 DEBUG 12632 --- [http-nio-8080-exec-3] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 13
+2020-01-05 00:53:49.883 DEBUG 12632 --- [http-nio-8080-exec-3] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 00:53:49.883 DEBUG 12632 --- [http-nio-8080-exec-3] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 00:53:49.884 DEBUG 12632 --- [http-nio-8080-exec-3] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 01:10:38.198 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 01:10:38.199 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 01:10:38.201 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 01:10:38.202 DEBUG 12632 --- [http-nio-8080-exec-4] c.linyuan.blog.dao.TagMapper.findAllTag  : ==>  Preparing: select tag_id,tag_name from tb_tag 
+2020-01-05 01:10:38.203 DEBUG 12632 --- [http-nio-8080-exec-4] c.linyuan.blog.dao.TagMapper.findAllTag  : ==> Parameters: 
+2020-01-05 01:10:38.205 DEBUG 12632 --- [http-nio-8080-exec-4] c.linyuan.blog.dao.TagMapper.findAllTag  : <==      Total: 9
+2020-01-05 01:10:38.205 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.BlogMapper.findBlogById     : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, content, appreciation, description, published, recommend, comment_enable, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.id = ? 
+2020-01-05 01:10:38.206 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.BlogMapper.findBlogById     : ==> Parameters: 9(Long)
+2020-01-05 01:10:38.208 DEBUG 12632 --- [http-nio-8080-exec-4] c.l.blog.dao.BlogMapper.findBlogById     : <==      Total: 2
+2020-01-05 01:11:02.384 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.TypeMapper.findTypeById     : ==>  Preparing: select type_id,type_name from tb_type where type_id = ? 
+2020-01-05 01:11:02.384 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.TypeMapper.findTypeById     : ==> Parameters: 5(Long)
+2020-01-05 01:11:02.385 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.TypeMapper.findTypeById     : <==      Total: 1
+2020-01-05 01:11:02.387 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.TagMapper.findTagList       : ==>  Preparing: select tag_id,tag_name from tb_tag where tag_id in ( ? or ? ) 
+2020-01-05 01:11:02.387 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.TagMapper.findTagList       : ==> Parameters: 11(Integer), 12(Integer)
+2020-01-05 01:11:02.388 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.TagMapper.findTagList       : <==      Total: 1
+2020-01-05 01:11:02.390 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findBlogById     : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, content, appreciation, description, published, recommend, comment_enable, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.id = ? 
+2020-01-05 01:11:02.390 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findBlogById     : ==> Parameters: 9(Long)
+2020-01-05 01:11:02.394 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findBlogById     : <==      Total: 2
+2020-01-05 01:11:02.398 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.updateBlog       : ==>  Preparing: update tb_blog set flag = ?, title = ?, content = ?, first_picture = ?, type_id = ?, description = ?, appreciation = ?, recommend = ?, share_statement = ? where id = ? 
+2020-01-05 01:11:02.399 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.updateBlog       : ==> Parameters: (String), 人工智能(String), ## 二级标题
+#### 四级标题
+###### 六级标题(String), https://picsum.photos/800/450(String), 5(Long), 这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...(String), false(Boolean), false(Boolean), false(Boolean), 9(Long)
+2020-01-05 01:11:02.403 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.updateBlog       : <==    Updates: 1
+2020-01-05 01:11:02.404 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.deleteBlogTagId  : ==>  Preparing: delete from tb_blog_tag where blog_id = ? 
+2020-01-05 01:11:02.404 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.deleteBlogTagId  : ==> Parameters: 9(Long)
+2020-01-05 01:11:02.407 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.deleteBlogTagId  : <==    Updates: 2
+2020-01-05 01:11:02.410 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.insertBlogTagId  : ==>  Preparing: insert into tb_blog_tag (blog_id,tag_id) values (?, ?) ; insert into tb_blog_tag (blog_id,tag_id) values (?, ?) 
+2020-01-05 01:11:02.411 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.insertBlogTagId  : ==> Parameters: 9(Long), 11(Integer), 9(Long), 12(Integer)
+2020-01-05 01:11:02.418 DEBUG 12632 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.insertBlogTagId  : <==    Updates: 1
+2020-01-05 01:11:02.450 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id 
+2020-01-05 01:11:02.451 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 
+2020-01-05 01:11:02.454 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 13
+2020-01-05 01:11:02.455 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 01:11:02.455 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 01:11:02.457 DEBUG 12632 --- [http-nio-8080-exec-1] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 01:15:51.304  INFO 5188 --- [restartedMain] com.linyuan.blog.BlogApplication         : Starting BlogApplication on DESKTOP-FP88SFT with PID 5188 (started by LinYuan in C:\Users\林远\IdeaProjects\blog)
+2020-01-05 01:15:51.307 DEBUG 5188 --- [restartedMain] com.linyuan.blog.BlogApplication         : Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2020-01-05 01:15:51.310  INFO 5188 --- [restartedMain] com.linyuan.blog.BlogApplication         : The following profiles are active: dev
+2020-01-05 01:15:51.420  INFO 5188 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@9a7cbbd: startup date [Sun Jan 05 01:15:51 CST 2020]; root of context hierarchy
+2020-01-05 01:15:55.879  INFO 5188 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-01-05 01:15:55.938  INFO 5188 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-01-05 01:15:55.939  INFO 5188 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2020-01-05 01:15:55.948  INFO 5188 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_31\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Anaconda;C:\Program Files\Anaconda\Library\mingw-w64\bin;C:\Program Files\Anaconda\Library\usr\bin;C:\Program Files\Anaconda\Library\bin;C:\Program Files\Anaconda\Scripts;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\MATLAB\R2016a\runtime\win64;C:\Program Files\MATLAB\R2016a\bin;C:\Program Files\MATLAB\R2016a\polyspace\bin;C:\Program Files\Java\jdk1.8.0_31\bin;C:\Program Files\Java\jdk1.8.0_31\jre\bin;C:\Program Files\apache-maven-3.6.1\bin;C:\Program Files\mysql-5.7.23-winx64\bin;C:\Program Files\Git\cmd;C:\Users\林远\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\Users\林远\AppData\Local\BypassRuntm;C:\Program Files\Bandizip\;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;.]
+2020-01-05 01:15:56.205  INFO 5188 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-01-05 01:15:56.206  INFO 5188 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4786 ms
+2020-01-05 01:15:56.486  INFO 5188 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2020-01-05 01:15:56.500  INFO 5188 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-01-05 01:15:56.501  INFO 5188 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-01-05 01:15:56.502  INFO 5188 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-01-05 01:15:56.503  INFO 5188 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-01-05 01:15:58.384  INFO 5188 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 01:15:59.169  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@9a7cbbd: startup date [Sun Jan 05 01:15:51 CST 2020]; root of context hierarchy
+2020-01-05 01:15:59.389  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.AboutShowController.about()
+2020-01-05 01:15:59.399  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.delete(java.lang.Long,com.linyuan.blog.domain.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 01:15:59.400  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/search],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.search(com.linyuan.blog.domain.BlogTypeVO,org.springframework.ui.Model)
+2020-01-05 01:15:59.401  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.input(org.springframework.ui.Model)
+2020-01-05 01:15:59.401  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.post(com.linyuan.blog.domain.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpSession)
+2020-01-05 01:15:59.402  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 01:15:59.403  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.blogs(com.linyuan.blog.domain.BlogTypeVO,org.springframework.ui.Model)
+2020-01-05 01:15:59.406  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 01:15:59.407  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.loginPage()
+2020-01-05 01:15:59.407  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.logout(javax.servlet.http.HttpSession)
+2020-01-05 01:15:59.410  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 01:15:59.411  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.input(org.springframework.ui.Model)
+2020-01-05 01:15:59.411  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.post(com.linyuan.blog.domain.Tag,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes,org.springframework.ui.Model)
+2020-01-05 01:15:59.412  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 01:15:59.413  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.findAllTag(org.springframework.ui.Model)
+2020-01-05 01:15:59.415  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.editPost(com.linyuan.blog.domain.Tag,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,org.springframework.ui.Model)
+2020-01-05 01:15:59.419  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.delete(long)
+2020-01-05 01:15:59.420  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.types(org.springframework.ui.Model)
+2020-01-05 01:15:59.421  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.editInput(long,org.springframework.ui.Model)
+2020-01-05 01:15:59.422  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.editPost(com.linyuan.blog.domain.Type,long)
+2020-01-05 01:15:59.422  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.typesInput(org.springframework.ui.Model)
+2020-01-05 01:15:59.423  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.postType(com.linyuan.blog.domain.Type,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 01:15:59.429  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/archives],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.ArchiveShowController.archives(org.springframework.ui.Model)
+2020-01-05 01:15:59.431  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments/{blogId}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.CommentController.comments(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 01:15:59.431  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.CommentController.post(com.linyuan.blog.domain.Comment,javax.servlet.http.HttpSession)
+2020-01-05 01:15:59.433  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.index(org.springframework.ui.Model)
+2020-01-05 01:15:59.434  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.search(org.springframework.ui.Model,java.lang.String)
+2020-01-05 01:15:59.434  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.blog(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 01:15:59.434  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/footer/newblog],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.newblogs(org.springframework.ui.Model)
+2020-01-05 01:15:59.435  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tags/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.TagShowController.tags(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 01:15:59.436  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/types/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.TypeShowController.types(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 01:15:59.441  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-01-05 01:15:59.443  INFO 5188 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-01-05 01:15:59.579  INFO 5188 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 01:15:59.580  INFO 5188 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 01:15:59.645  INFO 5188 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-01-05 01:15:59.983  INFO 5188 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-01-05 01:16:01.120  INFO 5188 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-01-05 01:16:01.193  INFO 5188 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-01-05 01:16:01.196  INFO 5188 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-01-05 01:16:01.209  INFO 5188 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2020-01-05 01:16:01.296  INFO 5188 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-01-05 01:16:01.306  INFO 5188 --- [restartedMain] com.linyuan.blog.BlogApplication         : Started BlogApplication in 12.834 seconds (JVM running for 17.375)
+2020-01-05 01:16:14.688  INFO 5188 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-01-05 01:16:14.689  INFO 5188 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-01-05 01:16:14.759  INFO 5188 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 70 ms
+2020-01-05 01:16:19.620  INFO 5188 --- [http-nio-8080-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-01-05 01:16:20.017  INFO 5188 --- [http-nio-8080-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-01-05 01:16:20.034 DEBUG 5188 --- [http-nio-8080-exec-9] c.l.b.d.U.findByUsernameAndPassword      : ==>  Preparing: select user_id, nickname, avatar, update_time, email from tb_user where username = ? AND password = ? 
+2020-01-05 01:16:20.071 DEBUG 5188 --- [http-nio-8080-exec-9] c.l.b.d.U.findByUsernameAndPassword      : ==> Parameters: linyuan(String), 0a0f(String)
+2020-01-05 01:16:20.106 DEBUG 5188 --- [http-nio-8080-exec-9] c.l.b.d.U.findByUsernameAndPassword      : <==      Total: 1
+2020-01-05 01:16:20.112 DEBUG 5188 --- [http-nio-8080-exec-9] c.l.blog.dao.UserMapper.updateLoginTime  : ==>  Preparing: UPDATE tb_user SET update_time = NOW( ) WHERE user_id = ? 
+2020-01-05 01:16:20.113 DEBUG 5188 --- [http-nio-8080-exec-9] c.l.blog.dao.UserMapper.updateLoginTime  : ==> Parameters: 1(Long)
+2020-01-05 01:16:20.116 DEBUG 5188 --- [http-nio-8080-exec-9] c.l.blog.dao.UserMapper.updateLoginTime  : <==    Updates: 1
+2020-01-05 01:16:21.727 DEBUG 5188 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id 
+2020-01-05 01:16:21.729 DEBUG 5188 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 
+2020-01-05 01:16:21.767 DEBUG 5188 --- [http-nio-8080-exec-10] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 13
+2020-01-05 01:16:21.768 DEBUG 5188 --- [http-nio-8080-exec-10] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 01:16:21.769 DEBUG 5188 --- [http-nio-8080-exec-10] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 01:16:21.772 DEBUG 5188 --- [http-nio-8080-exec-10] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 01:16:28.598 DEBUG 5188 --- [http-nio-8080-exec-2] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 01:16:28.599 DEBUG 5188 --- [http-nio-8080-exec-2] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 01:16:28.607 DEBUG 5188 --- [http-nio-8080-exec-2] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 01:16:28.609 DEBUG 5188 --- [http-nio-8080-exec-2] c.linyuan.blog.dao.TagMapper.findAllTag  : ==>  Preparing: select tag_id,tag_name from tb_tag 
+2020-01-05 01:16:28.609 DEBUG 5188 --- [http-nio-8080-exec-2] c.linyuan.blog.dao.TagMapper.findAllTag  : ==> Parameters: 
+2020-01-05 01:16:28.613 DEBUG 5188 --- [http-nio-8080-exec-2] c.linyuan.blog.dao.TagMapper.findAllTag  : <==      Total: 9
+2020-01-05 01:16:59.105 DEBUG 5188 --- [http-nio-8080-exec-2] c.l.blog.dao.BlogMapper.findBlogById     : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, content, appreciation, description, published, recommend, comment_enable, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.id = ? 
+2020-01-05 01:16:59.109 DEBUG 5188 --- [http-nio-8080-exec-2] c.l.blog.dao.BlogMapper.findBlogById     : ==> Parameters: 9(Long)
+2020-01-05 01:16:59.163 DEBUG 5188 --- [http-nio-8080-exec-2] c.l.blog.dao.BlogMapper.findBlogById     : <==      Total: 2
+2020-01-05 01:18:49.375  WARN 5188 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m50s275ms122µs400ns).
+2020-01-05 01:18:59.581  INFO 5188 --- [Thread-29] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@9a7cbbd: startup date [Sun Jan 05 01:15:51 CST 2020]; root of context hierarchy
+2020-01-05 01:18:59.606  INFO 5188 --- [Thread-29] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-01-05 01:18:59.607  INFO 5188 --- [Thread-29] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2020-01-05 01:18:59.610  INFO 5188 --- [Thread-29] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-01-05 01:18:59.624  INFO 5188 --- [Thread-29] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-01-05 01:24:14.188  INFO 5452 --- [restartedMain] com.linyuan.blog.BlogApplication         : Starting BlogApplication on DESKTOP-FP88SFT with PID 5452 (started by LinYuan in C:\Users\林远\IdeaProjects\blog)
+2020-01-05 01:24:14.192 DEBUG 5452 --- [restartedMain] com.linyuan.blog.BlogApplication         : Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2020-01-05 01:24:14.194  INFO 5452 --- [restartedMain] com.linyuan.blog.BlogApplication         : The following profiles are active: dev
+2020-01-05 01:24:14.331  INFO 5452 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@15cae176: startup date [Sun Jan 05 01:24:14 CST 2020]; root of context hierarchy
+2020-01-05 01:24:19.368  INFO 5452 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-01-05 01:24:19.412  INFO 5452 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-01-05 01:24:19.413  INFO 5452 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2020-01-05 01:24:19.421  INFO 5452 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_31\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Anaconda;C:\Program Files\Anaconda\Library\mingw-w64\bin;C:\Program Files\Anaconda\Library\usr\bin;C:\Program Files\Anaconda\Library\bin;C:\Program Files\Anaconda\Scripts;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\MATLAB\R2016a\runtime\win64;C:\Program Files\MATLAB\R2016a\bin;C:\Program Files\MATLAB\R2016a\polyspace\bin;C:\Program Files\Java\jdk1.8.0_31\bin;C:\Program Files\Java\jdk1.8.0_31\jre\bin;C:\Program Files\apache-maven-3.6.1\bin;C:\Program Files\mysql-5.7.23-winx64\bin;C:\Program Files\Git\cmd;C:\Users\林远\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\Users\林远\AppData\Local\BypassRuntm;C:\Program Files\Bandizip\;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;.]
+2020-01-05 01:24:19.607  INFO 5452 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-01-05 01:24:19.607  INFO 5452 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5276 ms
+2020-01-05 01:24:19.774  INFO 5452 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2020-01-05 01:24:19.783  INFO 5452 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-01-05 01:24:19.784  INFO 5452 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-01-05 01:24:19.785  INFO 5452 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-01-05 01:24:19.785  INFO 5452 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-01-05 01:24:21.154  INFO 5452 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 01:24:21.733  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@15cae176: startup date [Sun Jan 05 01:24:14 CST 2020]; root of context hierarchy
+2020-01-05 01:24:21.886  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.AboutShowController.about()
+2020-01-05 01:24:21.893  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.delete(java.lang.Long,com.linyuan.blog.domain.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 01:24:21.894  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/search],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.search(com.linyuan.blog.domain.BlogTypeVO,org.springframework.ui.Model)
+2020-01-05 01:24:21.894  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.input(org.springframework.ui.Model)
+2020-01-05 01:24:21.894  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.post(com.linyuan.blog.domain.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpSession)
+2020-01-05 01:24:21.895  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.blogs(com.linyuan.blog.domain.BlogTypeVO,org.springframework.ui.Model)
+2020-01-05 01:24:21.896  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.BlogController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 01:24:21.899  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 01:24:21.899  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.logout(javax.servlet.http.HttpSession)
+2020-01-05 01:24:21.899  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.LoginController.loginPage()
+2020-01-05 01:24:21.902  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 01:24:21.902  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.input(org.springframework.ui.Model)
+2020-01-05 01:24:21.902  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.post(com.linyuan.blog.domain.Tag,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes,org.springframework.ui.Model)
+2020-01-05 01:24:21.903  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.findAllTag(org.springframework.ui.Model)
+2020-01-05 01:24:21.904  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.editPost(com.linyuan.blog.domain.Tag,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,org.springframework.ui.Model)
+2020-01-05 01:24:21.905  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TagController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 01:24:21.909  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/delete],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.delete(long)
+2020-01-05 01:24:21.910  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.types(org.springframework.ui.Model)
+2020-01-05 01:24:21.911  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.editPost(com.linyuan.blog.domain.Type,long)
+2020-01-05 01:24:21.911  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.editInput(long,org.springframework.ui.Model)
+2020-01-05 01:24:21.912  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.postType(com.linyuan.blog.domain.Type,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-05 01:24:21.913  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/input],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.admin.TypeController.typesInput(org.springframework.ui.Model)
+2020-01-05 01:24:21.917  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/archives],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.ArchiveShowController.archives(org.springframework.ui.Model)
+2020-01-05 01:24:21.919  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments/{blogId}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.CommentController.comments(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 01:24:21.919  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.CommentController.post(com.linyuan.blog.domain.Comment,javax.servlet.http.HttpSession)
+2020-01-05 01:24:21.920  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.index(org.springframework.ui.Model)
+2020-01-05 01:24:21.921  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[POST]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.search(org.springframework.ui.Model,java.lang.String)
+2020-01-05 01:24:21.921  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.blog(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 01:24:21.922  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/footer/newblog],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.IndexController.newblogs(org.springframework.ui.Model)
+2020-01-05 01:24:21.923  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tags/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.TagShowController.tags(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 01:24:21.924  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/types/{id}],methods=[GET]}" onto public java.lang.String com.linyuan.blog.controller.TypeShowController.types(java.lang.Long,org.springframework.ui.Model)
+2020-01-05 01:24:21.928  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-01-05 01:24:21.929  INFO 5452 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-01-05 01:24:22.057  INFO 5452 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 01:24:22.058  INFO 5452 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-05 01:24:22.095  INFO 5452 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-01-05 01:24:22.328  INFO 5452 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-01-05 01:24:23.273  INFO 5452 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-01-05 01:24:23.334  INFO 5452 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-01-05 01:24:23.338  INFO 5452 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-01-05 01:24:23.349  INFO 5452 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2020-01-05 01:24:23.429  INFO 5452 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-01-05 01:24:23.436  INFO 5452 --- [restartedMain] com.linyuan.blog.BlogApplication         : Started BlogApplication in 12.305 seconds (JVM running for 15.188)
+2020-01-05 01:24:33.787  INFO 5452 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-01-05 01:24:33.788  INFO 5452 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-01-05 01:24:33.864  INFO 5452 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 76 ms
+2020-01-05 01:24:38.765  INFO 5452 --- [http-nio-8080-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-01-05 01:24:39.109  INFO 5452 --- [http-nio-8080-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-01-05 01:24:39.123 DEBUG 5452 --- [http-nio-8080-exec-9] c.l.b.d.U.findByUsernameAndPassword      : ==>  Preparing: select user_id, nickname, avatar, update_time, email from tb_user where username = ? AND password = ? 
+2020-01-05 01:24:39.156 DEBUG 5452 --- [http-nio-8080-exec-9] c.l.b.d.U.findByUsernameAndPassword      : ==> Parameters: linyuan(String), 0a0f(String)
+2020-01-05 01:24:39.185 DEBUG 5452 --- [http-nio-8080-exec-9] c.l.b.d.U.findByUsernameAndPassword      : <==      Total: 1
+2020-01-05 01:24:39.190 DEBUG 5452 --- [http-nio-8080-exec-9] c.l.blog.dao.UserMapper.updateLoginTime  : ==>  Preparing: UPDATE tb_user SET update_time = NOW( ) WHERE user_id = ? 
+2020-01-05 01:24:39.191 DEBUG 5452 --- [http-nio-8080-exec-9] c.l.blog.dao.UserMapper.updateLoginTime  : ==> Parameters: 1(Long)
+2020-01-05 01:24:39.195 DEBUG 5452 --- [http-nio-8080-exec-9] c.l.blog.dao.UserMapper.updateLoginTime  : <==    Updates: 1
+2020-01-05 01:25:15.411 DEBUG 5452 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id 
+2020-01-05 01:25:15.412 DEBUG 5452 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 
+2020-01-05 01:25:15.450 DEBUG 5452 --- [http-nio-8080-exec-1] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 13
+2020-01-05 01:25:15.452 DEBUG 5452 --- [http-nio-8080-exec-1] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 01:25:15.453 DEBUG 5452 --- [http-nio-8080-exec-1] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 01:25:15.456 DEBUG 5452 --- [http-nio-8080-exec-1] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 01:26:12.079 DEBUG 5452 --- [http-nio-8080-exec-4] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 01:26:12.080 DEBUG 5452 --- [http-nio-8080-exec-4] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 01:26:12.084 DEBUG 5452 --- [http-nio-8080-exec-4] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
+2020-01-05 01:26:12.086 DEBUG 5452 --- [http-nio-8080-exec-4] c.linyuan.blog.dao.TagMapper.findAllTag  : ==>  Preparing: select tag_id,tag_name from tb_tag 
+2020-01-05 01:26:12.087 DEBUG 5452 --- [http-nio-8080-exec-4] c.linyuan.blog.dao.TagMapper.findAllTag  : ==> Parameters: 
+2020-01-05 01:26:12.090 DEBUG 5452 --- [http-nio-8080-exec-4] c.linyuan.blog.dao.TagMapper.findAllTag  : <==      Total: 9
+2020-01-05 01:26:12.092 DEBUG 5452 --- [http-nio-8080-exec-4] c.l.blog.dao.BlogMapper.findBlogById     : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, content, appreciation, description, published, recommend, comment_enable, tb_blog.update_time, tb_type.type_id, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id and tb_blog.id = ? 
+2020-01-05 01:26:12.093 DEBUG 5452 --- [http-nio-8080-exec-4] c.l.blog.dao.BlogMapper.findBlogById     : ==> Parameters: 9(Long)
+2020-01-05 01:26:12.103 DEBUG 5452 --- [http-nio-8080-exec-4] c.l.blog.dao.BlogMapper.findBlogById     : <==      Total: 2
+2020-01-05 01:26:57.871 DEBUG 5452 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==>  Preparing: SELECT tb_blog.id, title, first_picture, flag, views, appreciation, description, published, recommend, tb_blog.type_id, tb_blog.update_time, tb_type.type_name, tb_tag.tag_name, u.nickname, u.avatar FROM tb_blog LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id, tb_type, tb_user u WHERE tb_blog.type_id = tb_type.type_id 
+2020-01-05 01:26:57.874 DEBUG 5452 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : ==> Parameters: 
+2020-01-05 01:26:57.914 DEBUG 5452 --- [http-nio-8080-exec-8] c.l.blog.dao.BlogMapper.findAllBlog      : <==      Total: 13
+2020-01-05 01:26:57.916 DEBUG 5452 --- [http-nio-8080-exec-8] c.l.blog.dao.TypeMapper.findAllType      : ==>  Preparing: select type_id,type_name from tb_type 
+2020-01-05 01:26:57.916 DEBUG 5452 --- [http-nio-8080-exec-8] c.l.blog.dao.TypeMapper.findAllType      : ==> Parameters: 
+2020-01-05 01:26:57.920 DEBUG 5452 --- [http-nio-8080-exec-8] c.l.blog.dao.TypeMapper.findAllType      : <==      Total: 5
