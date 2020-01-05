@@ -1,6 +1,6 @@
 # blog-repository
 ## 个人博客
-这是我的第一个github项目，做的是一个个人博客，参考的教学视频是B站的一个up主，链接https://www.bilibili.com/video/av62555970?p=47。
+这是一个个人博客网站，参考的教学视频是B站的一个up主，链接https://www.bilibili.com/video/av62555970?p=47。
 ### 实现功能
 #### 管理员
 1. 登陆
@@ -22,4 +22,4 @@
 ### 技术框架
 #### 后端：springboot、springMVC、 spring 、mybatis、mysql
 #### 前端：thymeleaf、 semanticUI 、Jquery
-##### java小白，欢迎和大家交流学习。QQ1603802787,微信18725857527。欢迎骚扰。
+##### java小白，这是我的第一个github项目，欢迎和大家交流学习。QQ1603802787,微信18725857527。欢迎骚扰。
