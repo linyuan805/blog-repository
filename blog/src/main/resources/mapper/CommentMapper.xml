@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.linyuan.blog.dao.CommentMapper">
+    <resultMap id="BaseResultMap" type="com.linyuan.blog.domain.Comment">
+        <id column="id" jdbcType="INTEGER" property="commentId" />
+
+
+    </resultMap>
+    <insert id="insertComment">
+        INSERT INTO
+        tb_comment (nickname,
+                    content,
+                    email,
+                    create_time,
+                    blog_id,
+                    parent_comment_id,
+                    avatar,
+                    admin_comment)
+        VALUES
+	    (#{nickname},
+	    #{content},
+	    #{email},
+	    #{createTime},
+	    #{blog.id},
+	    #{parentComment.commentId},
+	    #{avatar},
+	    #{adminComment})
+    </insert>
+
+    <select id="findCommentByBlogIdAndParentIdIsNull" resultType="com.linyuan.blog.domain.Comment">
+        select
+            *
+        from
+            tb_comment
+        where
+            blog_id = #{blogId}
+        and parent_comment_id is null
+    </select>
+    <select id="findCommentById" resultType="com.linyuan.blog.domain.Comment">
+        SELECT
+	        *
+        FROM
+	        tb_comment
+        WHERE
+	        comment_id = #{commentId}
+
+    </select>
+    <select id="findReplyCommentByParentId" resultType="com.linyuan.blog.domain.Comment">
+        select
+            *
+        from
+            tb_comment
+        where parent_comment_id = #{commentId}
+    </select>
+
+</mapper>
