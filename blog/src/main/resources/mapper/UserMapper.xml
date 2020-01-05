@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.linyuan.blog.dao.UserMapper" >
+    <resultMap id="BaseResultMap" type="com.linyuan.blog.domain.User">
+        <id column="id" jdbcType="INTEGER" property="userId" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+        <result column="email" jdbcType="VARCHAR" property="email" />
+        <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+        <result column="type" jdbcType="INTEGER" property="type" />
+        <result column="update_time" jdbcType="DATE" property="updateTime"/>
+
+    </resultMap>
+    <update id="updateLoginTime">
+        UPDATE tb_user
+        SET update_time = NOW( )
+        WHERE
+            user_id = #{userId}
+    </update>
+
+
+    <select id="findByUsernameAndPassword" resultType="com.linyuan.blog.domain.User" >
+        select
+            user_id,
+            nickname,
+            avatar,
+            update_time,
+            email
+        from tb_user
+        where username = #{username,jdbcType=VARCHAR}
+        AND
+        password = #{password,jdbcType=VARCHAR}
+    </select>
+
+
+</mapper>

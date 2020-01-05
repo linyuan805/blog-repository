@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.linyuan.blog.dao.BlogMapper">
+    <resultMap id="BaseResultMap" type="com.linyuan.blog.domain.Blog">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="first_picture" jdbcType="VARCHAR" property="firstPicture"/>
+        <result column="flag" jdbcType="VARCHAR" property="flag"/>
+        <result column="views" jdbcType="INTEGER" property="views"/>
+        <result column="appreciation" jdbcType="BOOLEAN" property="appreciation"/>
+        <result column="create_time" jdbcType="DATE" property="createTime"/>
+        <result column="update_time" jdbcType="DATE" property="updateTime" />
+        <result column="share_statement" jdbcType="BOOLEAN" property="shareStatement"/>
+        <result column="comment_enable" jdbcType="BOOLEAN" property="commentEnable"/>
+        <result column="published" jdbcType="BOOLEAN" property="published"/>
+        <result column="recommend" jdbcType="BOOLEAN" property="recommend" />
+        <result column="type_id" jdbcType="INTEGER" property="typeId"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+
+
+        <!--有顺序要求，一对一必须放在一对多的前面-->
+        <association property="type"  javaType="com.linyuan.blog.domain.Type" column="type_id">
+            <id property="typeId" column="type_id" jdbcType="INTEGER"></id>
+            <result property="typeName" column="type_name" jdbcType="VARCHAR"></result>
+        </association>
+
+        <association property="user" javaType="com.linyuan.blog.domain.User" column="user_id">
+            <id property="userId" column="user_id" jdbcType="INTEGER"></id>
+            <result property="nickname" column="nickname" jdbcType="VARCHAR"></result>
+            <result property="avatar" column="avatar" jdbcType="VARCHAR"></result>
+            <result property="type" column="type" jdbcType="INTEGER"></result>
+            <result property="createTime" column="create_time" jdbcType="DATE"></result>
+            <result property="updateTime" column="update_time" jdbcType="DATE"></result>
+            <result property="email" column="email" jdbcType="VARCHAR"></result>
+            <result property="username" column="username" jdbcType="VARCHAR"></result>
+            <result property="password" column="password" jdbcType="VARCHAR"></result>
+        </association>
+
+        <collection property="tagList" ofType="com.linyuan.blog.domain.Tag">
+            <id column="tag_id" property="tagId"></id>
+            <result column="tag_name" property="tagName"></result>
+        </collection>
+
+
+    </resultMap>
+
+    <insert id="insertBlog" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+
+        INSERT INTO
+        tb_blog (title,
+                content,
+                first_picture,
+                flag,
+                views,
+                appreciation,
+                create_time,
+                update_time,
+                share_statement,
+                comment_enable,
+                published,
+                recommend,
+                type_id,
+                description)
+        VALUES
+	    (#{title},
+	    #{content},
+	    #{firstPicture},
+	    #{flag},
+	    #{views},
+	    #{appreciation},
+	    now(),
+	    now(),
+	    #{shareStatement},
+	    #{commentEnable},
+	    #{published},
+	    #{recommend},
+	    #{type.typeId},
+	    #{description})
+
+    </insert>
+
+    <insert id="insertBlogTagId">
+
+        <foreach collection="tagIdInt" separator=";" item="tagId">
+            insert into tb_blog_tag (blog_id,tag_id) values (#{blogId}, #{tagId})
+        </foreach>
+
+    </insert>
+
+    <update id="updateBlog">
+        update tb_blog
+        set
+            flag = #{flag},
+            title = #{title},
+            content = #{content},
+            first_picture = #{firstPicture},
+            type_id = #{typeId},
+            description = #{description},
+            appreciation = #{appreciation},
+            recommend = #{recommend},
+            share_statement = #{shareStatement}
+        where
+            id = #{id}
+    </update>
+
+    <delete id="deleteBlogById">
+        delete from tb_blog where id = #{id}
+    </delete>
+
+    <delete id="deleteBlogTagId">
+        delete from tb_blog_tag where blog_id = #{id}
+    </delete>
+
+    <select id="findBlogById" resultMap="BaseResultMap">
+        SELECT
+        tb_blog.id,
+        title,
+        first_picture,
+        flag,
+        views,
+        content,
+        appreciation,
+        description,
+        published,
+        recommend,
+        comment_enable,
+        tb_blog.update_time,
+        tb_type.type_id,
+        tb_type.type_name,
+        tb_tag.tag_name,
+        u.nickname,
+        u.avatar
+        FROM
+        tb_blog
+        LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id
+        LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id,
+        tb_type,
+        tb_user u
+        WHERE
+        tb_blog.type_id = tb_type.type_id
+        and tb_blog.id = #{id}
+
+    </select>
+
+    <select id="findAllBlog"  resultMap="BaseResultMap" parameterType="com.linyuan.blog.domain.BlogTypeVO">
+        SELECT
+        tb_blog.id,
+        title,
+        first_picture,
+        flag,
+        views,
+        appreciation,
+        description,
+        published,
+        recommend,
+        tb_blog.type_id,
+        tb_blog.update_time,
+        tb_type.type_name,
+        tb_tag.tag_name,
+        u.nickname,
+        u.avatar
+        FROM
+        tb_blog
+        LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id
+        LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id,
+        tb_type,
+        tb_user u
+        WHERE
+        tb_blog.type_id = tb_type.type_id
+
+        <if test = "title != null and title !=''">
+            and title like CONCAT( '%', TRIM(#{title}), '%' )
+        </if>
+
+        <if test = "typeId != null and typeId !=''">
+            and tb_blog.type_id = #{typeId}
+        </if>
+
+        <if test = "recommend != null and recommend !=''">
+            and recommend = #{recommend}
+        </if>
+    </select>
+
+    <select id="findBlogByQuery" resultMap="BaseResultMap">
+        select
+            b.id,
+            b.title,
+            b.first_picture,
+            b.views,
+            b.description,
+            b.update_time,
+            u.nickname,
+            u.avatar,
+            t.type_name
+        from
+            tb_blog b
+            left JOIN tb_type t ON b.type_id = t.type_id,
+            tb_user u
+        WHERE
+            b.user_id = u.user_id
+        <if test = "query != null and query !=''">
+            and title like CONCAT( '%', TRIM(#{query}), '%' )
+            or
+            content like CONCAT( '%', TRIM(#{query}), '%' )
+        </if>
+    </select>
+    <select id="findBlogByTagId" resultMap="BaseResultMap">
+     SELECT
+	    tb_blog.id,
+	    title,
+	    first_picture,
+	    flag,
+	    views,
+	    appreciation,
+	    description,
+	    published,
+	    recommend,
+	    tb_blog.update_time,
+	    tb_type.type_name,
+	    tb_tag.tag_name,
+	    u.nickname,
+	    u.avatar
+    FROM
+	    tb_blog
+	LEFT OUTER JOIN tb_blog_tag ON tb_blog.id = tb_blog_tag.blog_id
+	LEFT OUTER JOIN tb_tag ON tb_tag.tag_id = tb_blog_tag.tag_id,
+	    tb_type,
+	    tb_user u
+    WHERE
+	    tb_type.type_id = tb_blog.type_id
+	AND tb_tag.tag_id = #{tagId}
+
+    </select>
+    <select id="findGroupYear" resultType="java.lang.String">
+        SELECT
+	        DATE_FORMAT( tb_blog.update_time, '%Y' ) AS years
+        FROM
+	        tb_blog
+        GROUP BY
+            years
+        ORDER BY
+	        years DESC
+
+    </select>
+    <select id="findBlogByYear" resultType="com.linyuan.blog.domain.Blog">
+        SELECT
+	        tb_blog.id,
+	        tb_blog.title,
+	        tb_blog.update_time,
+	        tb_blog.flag
+        FROM
+	        tb_blog
+        WHERE
+	        DATE_FORMAT( tb_blog.update_time, '%Y' ) = #{years}
+
+    </select>
+    <select id="countBlog" resultType="java.lang.Long">
+        select count(id) from  tb_blog
+    </select>
+    <select id="findBlogRecommendTop" resultType="com.linyuan.blog.domain.Blog">
+        SELECT
+            tb_blog.id,
+            tb_blog.title,
+            tb_blog.update_time,
+            tb_blog.flag
+        FROM
+            tb_blog
+        WHERE
+            recommend is true
+        ORDER BY
+            update_time DESC
+            LIMIT #{top}
+
+    </select>
+
+    <update id="updateViewsByBlogId">
+        UPDATE tb_blog
+            SET views = views + 1
+        WHERE id = #{blogId}
+    </update>
+</mapper>
